@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    char str[1000];
+    scanf("%s", str);   // input string (no spaces)
+
+    int hash[26] = {0}; // for lowercase letters a–z
+
+    // Precompute frequency
+    for (int i = 0; str[i] != '\0'; i++) 
+
+{
+        hash[str[i] - 'a']++;
+\\IT WILLL HELP US TO REACH TO THE CORRECT INDEX OF ARRAY EX- A== A-A=0 INDEX OF ARRAY SAME C-A=2 
+    }
+
+    int q;
+    scanf("%d", &q);
+
+    while (q--) {
+        char ch;
+        scanf(" %c", &ch);   // space before %c is IMPORTANT
+        printf("%d\n", hash[ch - 'a']);
+    }
+
+    return 0;
+}
