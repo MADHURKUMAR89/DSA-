@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include<limits.h>
+
+int main() {
+    int n, i;
+    int arr[100];
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+int m = 0;
+int j;
+for(j=1; j<n ;j++){
+    if(arr[j] != arr[m]){
+    arr[m+1] = arr[j];
+    m++;
+    }}
+
+for (i = 0; i < m; i++) {
+    printf("%d ", arr[i]);
+}
+
+
+} 
