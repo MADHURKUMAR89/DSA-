@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include<limits.h>
+
+int main() {
+    int n, i;
+    int arr[100];
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d elements:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int largest = arr[0];
+    int slargest = arr[0];
+
+    for (i = 1; i < n; i++) {
+        if (arr[i] > largest) {
+            slargest = largest;
+            largest = arr[i];
+        }
+        else if (arr[i] < largest && arr[i] > slargest) {
+            slargest = arr[i];
+        }
+    }
+
+    printf("Second largest element = %d\n", slargest);
+ int smalest = arr[0];
+    int ssmalest = INT_MAX;
+
+    for (i = 1; i < n; i++) {
+        if (arr[i] < smalest) {
+            ssmalest = smalest;
+            smalest = arr[i];
+        }
+        else if (arr[i] > smalest && arr[i] < ssmalest) {
+            ssmalest = arr[i];
+        }
+    }
+
+    printf("Second smalest element = %d\n", ssmalest);
+    return 0;
+} 
