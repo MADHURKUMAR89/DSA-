@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+void rearrangeArray(int nums[], int n, int ans[]) {
+    int posIndex = 0;
+    int negIndex = 1;
+
+    for (int i = 0; i < n; i++) {
+        if (nums[i] < 0) {
+            ans[negIndex] = nums[i];
+            negIndex += 2;
+        } else {
+            ans[posIndex] = nums[i];
+            posIndex += 2;
+        }
+    }
+}
+
+int main() {
+    int nums[] = {3, -2, 1, -5, 2, -4};
+    int n = sizeof(nums) / sizeof(nums[0]);
+    int ans[n];
+
+    rearrangeArray(nums, n, ans);
+
+    printf("Rearranged Array:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", ans[i]);
+    }
+
+    return 0;
+}
