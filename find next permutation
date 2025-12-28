@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+
+void reverse(int arr[], int start, int end) {
+    while (start < end) {
+        swap(&arr[start], &arr[end]);
+        start++;
+        end--;
+    }
+}
+
+
+void nextGreaterPermutation(int arr[], int n) {
+    int ind = -1;
+
+    // Step 1: Find the breakpoint
+    for (int i = n - 2; i >= 0; i--) {
+        if (arr[i] < arr[i + 1]) {
+            ind = i;
+            break;
+        }
+    }
+
+    if (ind == -1) {
+        reverse(arr, 0, n - 1);
+        return;
+    }
+
+
+    for (int i = n - 1; i > ind; i--) {
+        if (arr[i] > arr[ind]) {
+            swap(&arr[i], &arr[ind]);
+            break;
+        }
+    }
+
+    reverse(arr, ind + 1, n - 1);
+}
+
+int main() {
+    int arr[] = {1, 2, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    nextGreaterPermutation(arr, n);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
